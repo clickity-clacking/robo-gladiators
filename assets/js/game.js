@@ -2,12 +2,12 @@ var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
 //Function expression: This is when we create a function by assigning it to a variable instead of declaring it with the word function
-var fight = function() {
+var fight = function(enemyName) {
     window.alert("Welcome to Robot Gladiators!");
 
     var promptFight = window.prompt("Would you like to FIGHT or  SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
@@ -20,6 +20,11 @@ var fight = function() {
             playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
         );
 
+        for(var i=0; i < enemyName.length; i++) {
+            console.log(enemyName[i]);
+            console.log(i);
+            console.log(enemyName[i] + " is at " + i + " index");
+        }
         //check enemy's health
         if (enemyHealth <=0) {
             window.alert(enemyName = " has died!");
@@ -39,6 +44,7 @@ var fight = function() {
         } else {
             window.alert(playerName + " still has " + playerHealth + " health left.");
         }
+
     // if player chooses to skip
     } else if (promptFight === "skip" || promptFight === "SKIP" || promptFight === "Skip"){
         //confirm player wants to skip
@@ -60,4 +66,6 @@ var fight = function() {
     }
 };
 
-fight();
+for (var i=0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}
